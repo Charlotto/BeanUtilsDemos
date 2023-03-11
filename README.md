@@ -1,2 +1,2 @@
 # BeanUtilsDemos
-一个简单的BeanUtils教程
+BeanUtils 学习笔记
