@@ -2,8 +2,8 @@
 
 本文档基于[官方文档](https://commons.apache.org/proper/commons-beanutils/javadocs/v1.9.4/apidocs/org/apache/commons/beanutils/package-summary.html#standard)编写，提炼出PropertyUtils
 类的`使用场景`和`设计理念`
-
-### 背景
+## 1. 基本背景与使用
+### 1.1背景
 
 java官方组件对使用 `获取器(getter())` 获取 `beans` 内的属性值有着很好的支持，但是当遇到非常复杂的场景，而这些场景实际上又不需要程序员在编码阶段知道自己需要访问那些 beans 、需要修改或访问那些属性。
 针对这个问题，java给出了类似 `java.beans.Introspector` 自省类，他们能在 `runtime阶段` 审查一个类并且定位某个属性的getter 和 setter；再加上java的反射机制，使得程序可以在 `runtime阶段` 动态的
@@ -12,7 +12,7 @@ java官方组件对使用 `获取器(getter())` 获取 `beans` 内的属性值�
 
 而在 `BeanUtils` 中，是 `PropertyUtils`类 提供满足这些需求的API；在详细了解 API 的使用细节之前，有必要了解一些概念：
 
-### 属性的分类与访问
+### 1.2属性的分类与访问
 
 JavaBean 所支持的属性大致可以分为三类，他们有些被 `标准 JavaBeans`所支持，有些则在 `BeanUtils` 中单独提供支持:
 
@@ -25,16 +25,9 @@ JavaBean 所支持的属性大致可以分为三类，他们有些被 `标准 Ja
 **例程**
 - [Basic/Nested Property Access](./_1_basic_property_access)
 
-### 动态 Beans (DynaBeans)
+## 2. 高级主题
 
-`PropertyUtils` 中的 API 提供动态的属性访问而不用修改 Beans 中的任何代码，而当你打算将一群经过动态计算生成的属性值封装为 JavaBeans, 但是
-又没有设计这样的类来表示这些属性时，就涉及到 `动态属性访问` 的另一个使用场景了。 伴随着 `动态属性绑定` 节省了不去为了那些动态生成的属性额外
-创建、维护一个类的力气，它还意味着程序员可以处理动态生成属性的场景了，例如当处理将执行DQL语句后产生的 `ResultSet` 内容封装成 Beans 时。
-
-为了满足以上需求，`BeanUtils`包 提供了 `DynaBean` 接口， 此接口必须由实现此接口内部函数的 Bean 类实现。
-
-**例程**
-- [Dynamic Beans (DynaBeans)](./_2_dynamic_beans_usage)
+- [动态Beans](./_2_dynamic_beans_usage/DynamicBeans.md)
 
 ## 例程目录
 
