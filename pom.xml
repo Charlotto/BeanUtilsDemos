@@ -31,6 +31,11 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>com.zplus.dbutils</groupId>
+      <artifactId>druid-utils</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>BeanUtilsDemos</finalName>
