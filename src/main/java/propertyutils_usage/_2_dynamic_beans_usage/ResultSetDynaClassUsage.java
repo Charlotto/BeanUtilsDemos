@@ -31,7 +31,7 @@ public class ResultSetDynaClassUsage
         //2. 获取对象集合迭代器，并使用
         Iterator rows = (new ResultSetDynaClass(rs)).iterator();
 
-        while(rows.hasNext())
+        while(rows.hasNext()) // resultSet得保持开放直到 所有 row都被封装为 DynaClass
         {
             // 将RsultSet中的内容封装为 DynaBean
             DynaBean row = (DynaBean) rows.next();
