@@ -17,7 +17,7 @@ import java.util.List;
  * 展示RowSetDynaClass的使用方式，需要链接数据库
  *
  * RowSetDynaClass 是BeanUtils中将 ResultSet中的内容快速封装为DynaBeans 的工具类，它可以使得ResultSet中的属性不需要在执行SQL后暴露在
- * 程序员面前，同时它解决了ResultSet脱离定义作用域后失效的问题，简化了在把 ResultSet 封装为 JavaBean 之前对数据处理的过程
+ * 程序员面前，同时它解决了ResultSet脱离定义作用域后失效的问题，也就是说即使在 ResultSet 失效以后也能对它的数据进行操作，简化了在把 ResultSet 封装为 JavaBean 之前对数据处理的过程
  */
 public class RowSetDynaClassUseage
 {
@@ -31,8 +31,10 @@ public class RowSetDynaClassUseage
         String sql = "select * from userInfo;";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
+        /////////////////////////////////////////////
         RowSetDynaClass rsdc = new RowSetDynaClass(rs);
-        rs.close(); // 一旦RowSetDynaClass
+        ////////////////////////////////////////////
+        rs.close(); // 一旦RowSetDynaClass 完成传递，则不需要原生 resultSet了
         pstmt.close();
         DruidUtils.close(conn);
 
