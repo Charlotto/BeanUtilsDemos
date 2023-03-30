@@ -30,14 +30,27 @@
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>com.zplus.dbutils</groupId>
       <artifactId>druid-utils</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
+
+
   <build>
+    <plugins>
+<!--      如果每次编译器目标java版本都还原会1.5，则表明maven中没有对应设置-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+    </plugins>
     <finalName>BeanUtilsDemos</finalName>
   </build>
 </project>
